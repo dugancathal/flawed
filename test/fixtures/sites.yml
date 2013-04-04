@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+xkcd:
+  name: xkcd
+  url: http://xkcd.com
+
+facebook:
+  name: MyString
+  url: http://facebook.com
+
+37signals:
+  name: 37signals Blog
+  url: http://37signals.com/svn
