@@ -1,4 +1,6 @@
 Flawed::Application.routes.draw do
+  resources :flaws
+
   get "pages/home"
   root to: 'users#show'
 

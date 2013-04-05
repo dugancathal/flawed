@@ -1,6 +1,9 @@
 require 'addressable/uri'
 
 class Site < ActiveRecord::Base
+  has_many :flaws
+  has_many :users, through: :flaws
+
   validates :url, :name, presence: true
 
   def self.from_url(params = {})

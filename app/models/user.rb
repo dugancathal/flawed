@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :flaws
+  has_many :sites, through: :flaws
+
   validates :provider, presence: true, unless: :username
 
   def self.from_omniauth(auth)
