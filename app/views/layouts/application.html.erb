@@ -16,6 +16,13 @@
         <br/>
         <small>Keep your FLaWs in check!</small>
       </h1>
+      <div class='actions pull-right'>
+        <% if current_user %>
+          <%= link_to 'Log out', logout_path %>
+          <%= image_tag current_user.profile_pic %>
+        <% end %>
+      </div>
+      <div class='clearfix'/>
     </div>
 
     <%= yield %>

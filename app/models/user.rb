@@ -1,12 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor :password, :password_confirmation
-
-  has_secure_password validations: false
-
-  # with_options unless: :provider do |password_user|
-    # validates :password, presence: true
-    # validates :username, presence: true
-  # end
+  has_secure_password
 
   validates :provider, presence: true, unless: :username
 
@@ -18,6 +11,8 @@ class User < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.profile_pic = auth.info.image
+      user.password = SecureRandom.hex(6)
+      user.password_confirmation = user.password
       user.save!
     end
   end
