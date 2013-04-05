@@ -1,5 +1,4 @@
 Flawed::Application.routes.draw do
-  resources :flaws
 
   get "pages/home"
   root to: 'users#show'
@@ -10,4 +9,6 @@ Flawed::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
   resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :flaws, only: [:create]
+  resources :sites, only: [:create]
 end
