@@ -14,6 +14,6 @@ class FlawTest < ActiveSupport::TestCase
     assert flaw.valid?
     assert_equal flaw.refreshes_every, 24.hours
     assert_equal flaw.site.name, 'The Oatmeal'
-    assert_equal flaw.site.url, 'theoatmeal.com'
+    assert_equal flaw.site.url, 'http://theoatmeal.com'
   end
 end

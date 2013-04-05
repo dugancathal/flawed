@@ -8,7 +8,7 @@ class Flaw < ActiveRecord::Base
 
   def site_name=(name)
     name, url = name.split('<')
-    self.site = Site.where(name: name).first_or_create(url: url.gsub('>', ''))
+    self.site = Site.where(name: name).first_or_create(url_fragment: url.gsub('>', ''))
   end
 
   def site_name
@@ -20,6 +20,6 @@ class Flaw < ActiveRecord::Base
   end
 
   def recurs_every
-    self.refreshes_every.hours
+    self.refreshes_every.try(:hours)
   end
 end

@@ -14,6 +14,12 @@ class Site < ActiveRecord::Base
     Site.new.tap {|site| site.errors[:url] << 'The URL must be a valid HTTP(s) address'}
   end
 
+  def url_fragment=(frag)
+    self.url = Addressable::URI.heuristic_parse(frag).to_s
+  rescue Addressable::URI::InvalidURIError
+    nil
+  end
+
   def thumbnail_url
     SiteThumbnail.new(self).to_url
   end
