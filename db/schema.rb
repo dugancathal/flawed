@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130405054732) do
+ActiveRecord::Schema.define(version: 20130405075514) do
 
   create_table "sites", force: true do |t|
     t.string   "name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20130405054732) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "profile_pic"
+    t.string   "username"
+    t.string   "password_digest"
   end
 
 end

@@ -1,4 +1,15 @@
 class User < ActiveRecord::Base
+  attr_accessor :password, :password_confirmation
+
+  has_secure_password validations: false
+
+  # with_options unless: :provider do |password_user|
+    # validates :password, presence: true
+    # validates :username, presence: true
+  # end
+
+  validates :provider, presence: true, unless: :username
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider

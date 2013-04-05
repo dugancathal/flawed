@@ -15,3 +15,12 @@ somebody:
   oauth_token: 2091jdpq290dj021j2239dj239dj90
   oauth_expires_at: <%= Time.now + 60.days %>
   profile_pic: http://graph.facebook.com/<%= uid %>/picture
+
+dugancathal_nofb:
+  provider:
+  uid:
+  name: TJ Taylor
+  oauth_token:
+  oauth_expires_at:
+  profile_pic: http://graph.facebook.com/<%= uid %>/picture
+  username: dugancathal

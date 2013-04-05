@@ -19,4 +19,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not_nil user.profile_pic
     assert_kind_of URI::HTTP, uri
   end
+
+  test 'username and password authentication' do
+    user = users(:dugancathal_nofb)
+    assert_respond_to user, :password_digest
+    assert_respond_to user, :password
+    assert_respond_to user, :password_confirmation
+    assert_respond_to user, :authenticate
+  end
 end
