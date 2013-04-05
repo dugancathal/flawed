@@ -8,7 +8,7 @@ class SessionsControllerTest < ActionController::TestCase
   test 'posts create is successful' do
     post :create
     assert_response :redirect
-    assert_redirected_to root_path
+    assert_redirected_to user_path(assigns(:user))
   end
 
   test 'create establishes user_id in session' do
