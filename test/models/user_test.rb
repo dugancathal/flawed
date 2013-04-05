@@ -27,4 +27,10 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to user, :password_confirmation
     assert_respond_to user, :authenticate
   end
+
+  test 'sizing of facebook url based profile pics' do
+    user = users(:dugancathal)
+    assert_match /height=25/, user.profile_picture(25, 25)
+    assert_match /width=25/, user.profile_picture(25, 25)
+  end
 end

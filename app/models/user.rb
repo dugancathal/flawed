@@ -16,4 +16,15 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def profile_picture(width, height)
+    if profile_pic =~ /graph.facebook.com/
+      options = {width: width, height: height}
+      url = URI.parse(profile_pic)
+      url.query = options.to_query
+      url.to_s
+    else
+      profile_pic
+    end
+  end
 end
