@@ -20,4 +20,12 @@ class ActiveSupport::TestCase
       credentials: { expires_at: (Time.now + 2.hours).to_i, token: 'AAABBBBCCC'}
     )
   end
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = Hashie::Mash.new({
+    provider: 'facebook',
+    uid: '1234567',
+    info: {name: 'TJ Taylor'},
+    credentials: { expires_at: (Time.now + 2.hours).to_i, token: 'AAABBBBCCC'}
+  })
 end
