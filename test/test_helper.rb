@@ -16,7 +16,7 @@ class ActiveSupport::TestCase
     Hashie::Mash.new(
       provider: 'facebook',
       uid: '1234567',
-      info: {name: 'TJ Taylor'},
+      info: {name: 'TJ Taylor', image: 'http://graph.facebook.com'},
       credentials: { expires_at: (Time.now + 2.hours).to_i, token: 'AAABBBBCCC'}
     )
   end
@@ -25,7 +25,7 @@ class ActiveSupport::TestCase
   OmniAuth.config.mock_auth[:facebook] = Hashie::Mash.new({
     provider: 'facebook',
     uid: '1234567',
-    info: {name: 'TJ Taylor'},
+    info: {name: 'TJ Taylor', image: 'http://graph.facebook.com'},
     credentials: { expires_at: (Time.now + 2.hours).to_i, token: 'AAABBBBCCC'}
   })
 end

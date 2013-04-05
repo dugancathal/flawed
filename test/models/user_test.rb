@@ -12,4 +12,11 @@ class UserTest < ActiveSupport::TestCase
     user = User.from_omniauth(facebook_auth)
     assert user.valid?
   end
+
+  test 'profile_pic returns a url to a picture' do
+    user = users(:dugancathal)
+    uri = URI.parse(user.profile_pic)
+    assert_not_nil user.profile_pic
+    assert_kind_of URI::HTTP, uri
+  end
 end
