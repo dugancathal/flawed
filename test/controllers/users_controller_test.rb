@@ -43,6 +43,6 @@ class UsersControllerTest < ActionController::TestCase
   test 'posts create' do
     post :create, user: user_params
     assert_not_nil assigns(:user)
-    assert_redirected user_path(assigns(:user))
+    assert_redirected_to user_path(assigns(:user))
   end
 end
