@@ -1,4 +1,5 @@
 class Flaw < ActiveRecord::Base
+  attr_accessor :site_name
   belongs_to :site
   belongs_to :user
 

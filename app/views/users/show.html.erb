@@ -1,0 +1,38 @@
+<div class='span8'>
+  <div class="accordion" id="flaw-list">
+    <% default_spans.each_with_index do |(span, text), i| %>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#flaw-list" href="#flaw-group-<%= i %>"><%= text %> - <%= @user.flaws.need_to_check(span).count %></a>
+        </div>
+        <div id="flaw-group-<%= i %>" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <ul class="thumbnails">
+              <% @user.flaws.need_to_check(span).first(3).each do |flaw| %>
+                <li class="span3">
+                  <div class="thumbnail">
+                    <img src="<%= flaw.site.thumbnail_url %>"></img>
+                    <h3 class='text-center'><%= link_to flaw.site.name, flaw.site.url %></h3>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class='span3 sidebar-nav well'>
+  <h3>Embrace It</h3>
+  <%= form_for Flaw.new do |f| %>
+    <%= f.label :site_name, 'Site' %>
+    <%= f.text_field :site_name %>
+    <br/>
+    <%= f.label :refreshes_every, '' %>
+    <%= f.text_field :refreshes_every %>
+    <br/>
+    <%= f.button 'Submit', class: 'btn btn-primary' %>
+  <% end %>
+</div>

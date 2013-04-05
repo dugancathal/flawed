@@ -13,4 +13,8 @@ class Site < ActiveRecord::Base
   rescue Addressable::URI::InvalidURIError
     Site.new.tap {|site| site.errors[:url] << 'The URL must be a valid HTTP(s) address'}
   end
+
+  def thumbnail_url
+    SiteThumbnail.new(self).to_url
+  end
 end
