@@ -12,4 +12,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def facebook_auth
+    Hashie::Mash.new(
+      provider: 'facebook',
+      uid: '1234567',
+      info: {name: 'TJ Taylor'},
+      credentials: { expires_at: (Time.now + 2.hours).to_i, token: 'AAABBBBCCC'}
+    )
+  end
 end
