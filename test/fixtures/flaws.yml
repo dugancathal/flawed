@@ -1,11 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  site_id: 
-  user_id: 
-  refreshes_every: 1
+xkcd:
+  site: xkcd
+  user: dugancathal
+  refreshes_every: <%= 2.days %>
+  updated_at: <%= Time.now - 1.day %>
 
-two:
-  site_id: 
-  user_id: 
-  refreshes_every: 1
+37signals:
+  site: 37signals
+  user: dugancathal
+  refreshes_every: <%= 5.hours %>
+  updated_at: <%= Time.now - 6.hours %>
+
