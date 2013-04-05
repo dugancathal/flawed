@@ -26,3 +26,4 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 gem 'addressable', '~> 2.3.0'
+gem 'omniauth-facebook', '1.4.0'

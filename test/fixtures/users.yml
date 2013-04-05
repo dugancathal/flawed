@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+dugancathal:
+  provider: facebook
+  uid: 12381409
+  name: TJ Taylor
+  oauth_token: 1093da09d20qjd09j12092e0192j10
+  oauth_expires_at: <%= Time.now + 60.days %>
+
+somebody:
+  provider: facebook
+  uid: 12093471
+  name: Some Person
+  oauth_token: 2091jdpq290dj021j2239dj239dj90
+  oauth_expires_at: <%= Time.now + 60.days %>
