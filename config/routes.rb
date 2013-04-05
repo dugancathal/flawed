@@ -4,7 +4,8 @@ Flawed::Application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'logout'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  resources :sessions, only: [:create, :destroy]
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:new, :create, :show, :edit, :update]
 end
