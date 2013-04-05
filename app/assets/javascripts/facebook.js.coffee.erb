@@ -8,7 +8,7 @@ jQuery ->
 
 
 window.fbAsyncInit = ->
-  FB.init(appId: '<%= ENV["FACEBOOK_APP_ID"] %>', cookie: true)
+  FB.init(appId: '<%= Facebook::Config['app_id'] %>', cookie: true)
 
   $('#sign_in').click (e) ->
     e.preventDefault()
@@ -17,6 +17,7 @@ window.fbAsyncInit = ->
     , scope: 'email')
 
   $('#sign_out').click (e) ->
+    console.log 'calling from 2nd'
     FB.getLoginStatus (response) ->
       FB.logout() if response.authResponse
     true
