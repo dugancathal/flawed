@@ -29,10 +29,9 @@
   <div class='flawed-input'></div>
   <%= form_for Flaw.new, remote: true do |f| %>
     <%= f.label :site_name, 'Site' %>
-    <%= f.text_field :site_name, placeholder: 'Email syntax: NAME<URL>' %>
+    <%= f.text_field :site_name, placeholder: 'SITE NAME<SITE URL>' %>
     <br/>
-    <%= f.label :refreshes_every %>
-    <%= f.text_field :refreshes_every, placeholder: '5 hours or 3 days, 2 hours' %>
+    <%= f.text_field :refreshes_every, placeholder: 'number of hours between check-ins' %>
     <br/>
     <%= f.button 'Submit', class: 'btn btn-primary' %>
   <% end %>

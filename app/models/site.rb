@@ -1,7 +1,7 @@
 require 'addressable/uri'
 
 class Site < ActiveRecord::Base
-  has_many :flaws
+  has_many :flaws, dependent: :destroy
   has_many :users, through: :flaws
 
   validates :url, :name, presence: true

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :flaws
+  has_many :flaws, dependent: :destroy
   has_many :sites, through: :flaws
 
   validates :provider, presence: true, unless: :username
